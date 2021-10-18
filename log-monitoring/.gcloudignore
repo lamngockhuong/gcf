@@ -14,7 +14,8 @@
 .git
 .gitignore
 .eslintrc.json
-readme.md
+README.md
 
 node_modules
 .env
+.env.example
