@@ -12,6 +12,11 @@ exports.monitoringHttp = async (req, res) => {
   try {
     const data = req.body
     logger.info(JSON.stringify(data))
+
+    if (req.query?.secret !== process.env.WEBHOOK_SECRET) {
+      throw new Error('Unauthenticated')
+    }
+
     if (isEmpty(data)) {
       throw new Error('Request body is required')
     }
