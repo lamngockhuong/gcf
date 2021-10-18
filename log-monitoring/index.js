@@ -26,7 +26,7 @@ exports.monitoringHttp = async (req, res) => {
 }
 
 async function handleError (data) {
-  if (data.incident) {
+  if (data?.incident && data?.incident?.incident_id !== 'test') {
     await sendChatworkAlert(data.incident)
   }
 }
